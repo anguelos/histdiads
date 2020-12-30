@@ -4,8 +4,8 @@
 
 Pytorch wrappers for historical DIA datasets.
 Requires:
-torchvision >= 0.4
-Python 3
+torchvision >= 0.4,
+Python >= 3.6,
 pytorch > 1.0
 
 ### Installation:

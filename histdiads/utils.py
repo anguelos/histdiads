@@ -33,11 +33,11 @@ def download_url(url, filename, filesize=None, resume=True):
 
 
 def extract(compressed_path, root):
-    if compressed_path.endswith(".tar.gz"):
+    if compressed_path.name.endswith(".tar.gz"):
         my_tar = tarfile.open(compressed_path,"r:gz")
         my_tar.extractall(root)
         my_tar.close()
-    elif compressed_path.endswith(".zip"):
+    elif compressed_path.name.endswith(".zip"):
         archive = zipfile.ZipFile(compressed_path)
         archive.extractall(root)
         archive.close()

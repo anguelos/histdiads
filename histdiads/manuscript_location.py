@@ -3,6 +3,7 @@ import torch
 import csv
 from torchvision import transforms
 from PIL import Image
+from pathlib import Path
 
 class ManuscriptLocationDs(torch.utils.data.Dataset):
     """Dataset class for DIA classification.
@@ -38,12 +39,14 @@ class ManuscriptLocationDs(torch.utils.data.Dataset):
             raise ValueError
         url, filesize, subroot, csv_filename = url
         filename = url.split("/")[-1]
-        filename = f"{self.root}/{filename}"
+        #filename = f"{self.root}/{filename}"
+        filename = Path.joinpath(self.root, filename)
         return url, filename, filesize, subroot, csv_filename
 
 
     def load_filenames(self):
-        csv_path = f"{self.root}/{self.subroot}/{self.csv_filename}"
+        #csv_path = f"{self.root}/{self.subroot}/{self.csv_filename}"
+        csv_path = Path.joinpath(self.root, self.subroot, self.csv_filename)
         with open(csv_path, "r") as fin:
             csv_reader = csv.reader(open(csv_path, "r"), delimiter=',')
             self.samples = []
@@ -52,16 +55,17 @@ class ManuscriptLocationDs(torch.utils.data.Dataset):
                 if row[1] in ManuscriptLocationDs.locations:
                     gt = torch.zeros(len(name2class))
                     gt[[name2class[col] for col in row[1:]]] = 1
-                    img_path = f"{self.root}/{self.subroot}/{row[0]}"
+                    #img_path = f"{self.root}/{self.subroot}/{row[0]}"
+                    img_path = Path.joinpath(self.root, self.subroot, row[0])
                     self.samples.append((img_path, gt))
 
 
-    def __init__(self, download=False, perform_extract=True, root="./", partition="train",
+    def __init__(self, download=False, perform_extract=True, root=".", partition="train",
                  input_transform=transforms.PILToTensor(), output_transform=(lambda x: x)):
         assert partition in ["train", "validation", "test"]
         self.download = download
         self.perform_extract = perform_extract
-        self.root = root
+        self.root = Path(root)
         self.partition = partition
 
         self.input_transform = input_transform
