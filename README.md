@@ -33,21 +33,22 @@ Will extract the archive file.
 Set to False to avoid re-extraction if archive already extracted.
 
 ### Space requirements:
-
 |Dataset| Size|
 |-------|-----|
 | ClammDs | ~19GB |
 | ManuscriptLocationDs train and validation| ~35GB|
+This is the space required both for the archives and the extracted data.
+Once the data are extracted, the archives can be erased but _*download*_ 
+and _perform_extract_ should be set to False if so.
 
 ### References:
 ```bibtex
-@inproceedings{tensmeyer2017convolutional,
-  title={Convolutional neural networks for font classification},
-  author={Tensmeyer, Chris and Saunders, Daniel and Martinez, Tony},
-  booktitle={2017 14th IAPR international conference on document analysis and recognition (ICDAR)},
-  volume={1},
-  pages={985--990},
-  year={2017},
+@inproceedings{cloppet2016icfhr2016,
+  title={ICFHR2016 competition on the classification of medieval handwritings in latin script},
+  author={Cloppet, Florence and Eglin, V{\'e}ronique and Stutzmann, Dominique and Vincent, Nicole and others},
+  booktitle={2016 15th International Conference on Frontiers in Handwriting Recognition (ICFHR)},
+  pages={590--595},
+  year={2016},
   organization={IEEE}
 }
 ```
