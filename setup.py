@@ -3,7 +3,7 @@ from setuptools import setup, Extension
 setup(
     name='histdiads',
     version='0.1.0',
-    packages=['histdiads', 'diamond_square'],
+    packages=['histdiads'],
     license='MIT',
     author='Anguelos Nicolaou',
     author_email='anguelos.nicolaou@gmail.com',
