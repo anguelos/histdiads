@@ -4,7 +4,7 @@ setup(
     name='histdiads',
     version='0.1.0',
     packages=['histdiads'],
-    license='MIT',
+    license='Apache',
     author='Anguelos Nicolaou',
     author_email='anguelos.nicolaou@gmail.com',
     url='https://github.com/anguelos/histdiads',
