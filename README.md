@@ -37,6 +37,8 @@ Set to False to avoid re-extraction if archive already extracted.
 |-------|-----|
 | ClammDs | ~19GB |
 | ManuscriptLocationDs train and validation| ~35GB|
+
+
 This is the space required both for the archives and the extracted data.
 Once the data are extracted, the archives can be erased but _*download*_ 
 and _perform_extract_ should be set to False if so.
